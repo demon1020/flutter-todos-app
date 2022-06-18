@@ -16,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Todo'),
+        backgroundColor: Color(0xFF34465D),
       ),
       body: Consumer<TodosProvider>(
         builder: (context, todosProvider, _) {
@@ -31,12 +32,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     subtitle: Text(todosProvider.showData(index)!.description),
                     trailing: IconButton(
                       icon: Icon(Icons.delete),
-                      onPressed: ()  {
-                        todosProvider.deleteData(index);
-                        print(todosProvider.dataLength());
+                      color: Color(0xFF34465D),
+                      onPressed: () {
+                        if (index == 0) {
+                          todosProvider.disposeDB();
+                        } else {
+                          todosProvider.deleteData(index);
+                          print(todosProvider.dataLength());
+                        }
                       },
                     ),
-                    onTap: (){
+                    onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => AddTodo(),
@@ -52,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
+        backgroundColor: Color(0xFF34465D),
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
