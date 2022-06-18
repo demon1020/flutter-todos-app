@@ -1,6 +1,6 @@
-# hiveflutter
+# Todo's App
 
-A new Flutter project.
+Todo's App is a kind of app that generally used to maintain our day-to-day tasks or list everything that we have to do and it is helpful in planning our daily schedules.
 
 ## Getting Started
 
